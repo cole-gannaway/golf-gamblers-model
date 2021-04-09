@@ -1,4 +1,6 @@
+import { IdRefMap } from './relations';
+
 export interface ScoreCard {
-  userRef: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>;
-  createdAt: FirebaseFirestore.Timestamp;
+  userRef: IdRefMap;
+  createdTime: FirebaseFirestore.Timestamp;
 }

@@ -3,7 +3,7 @@ export interface Course {
   clubName?: string;
   public: boolean;
   location: Location;
-  createdAt: FirebaseFirestore.Timestamp;
+  createdTime: FirebaseFirestore.Timestamp;
 }
 
 export interface Location {

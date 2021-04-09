@@ -6,7 +6,7 @@ import { IdRefMap } from './relations';
 export interface Group {
   name: string;
   userRefs: IdRefMap;
-  createdAt: FirebaseFirestore.Timestamp;
+  createdTime: FirebaseFirestore.Timestamp;
 }
 
 /**
@@ -15,5 +15,5 @@ export interface Group {
 export interface Team {
   name: string;
   userRefs: IdRefMap;
-  createdAt: FirebaseFirestore.Timestamp;
+  createdTime: FirebaseFirestore.Timestamp;
 }

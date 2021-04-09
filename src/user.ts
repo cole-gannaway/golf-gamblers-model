@@ -8,7 +8,7 @@ export interface UserPrivateData {
   email?: string;
   phoneNumber?: string;
   subscriptionState: SubscriptionState;
-  createdAt: FirebaseFirestore.Timestamp;
+  createdTime: FirebaseFirestore.Timestamp;
 }
 
 export type SubscriptionState = 'None' | 'Basic';

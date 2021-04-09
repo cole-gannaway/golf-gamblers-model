@@ -2,16 +2,32 @@ import { IdRefMap } from './relations';
 
 export interface Event {
   name: string;
-  private: boolean;
-  courseRef: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>;
-  userRefs: IdRefMap;
-  groupRefs?: IdRefMap;
-  createdBy: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>;
-  createdAt: FirebaseFirestore.Timestamp;
+  createdTime: FirebaseFirestore.Timestamp;
+  creatorRef: IdRefMap;
 }
 
-export interface EventMetaData {
+export interface EventConfiguration {
+  private: boolean;
+  courseRef: IdRefMap;
   numberOfHoles: number;
   maxBet: number;
   tees: string;
+  status: EventStatus;
 }
+
+export interface EventPrivateData {
+  // TODO add information regarding the event results and leaderboard
+  betRefs?: IdRefMap;
+  scoreRefs?: IdRefMap;
+}
+
+export interface EventAdmins {
+  userRefs: IdRefMap;
+}
+
+export interface EventUsers {
+  userRefs: IdRefMap;
+  groupRefs?: IdRefMap;
+}
+
+export type EventStatus = 'created' | 'complete';

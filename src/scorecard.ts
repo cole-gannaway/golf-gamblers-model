@@ -1,3 +1,4 @@
 export interface ScoreCard {
-  userId: string;
+  userRef: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>;
+  createdAt: FirebaseFirestore.Timestamp;
 }

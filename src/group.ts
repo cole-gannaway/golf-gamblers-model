@@ -1,6 +1,19 @@
-import { IdListObject } from './listobjects';
+import { IdRefMap } from './relations';
 
+/**
+ * Groups are used to add all group members to an event
+ */
 export interface Group {
-  groupName: string;
-  userIds: IdListObject;
+  name: string;
+  userRefs: IdRefMap;
+  createdAt: FirebaseFirestore.Timestamp;
+}
+
+/**
+ * Team members can edit each other's scorecards
+ */
+export interface Team {
+  name: string;
+  userRefs: IdRefMap;
+  createdAt: FirebaseFirestore.Timestamp;
 }

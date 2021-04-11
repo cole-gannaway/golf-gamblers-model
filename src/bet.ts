@@ -1,15 +1,13 @@
-import { IdRefMap } from './relations';
-
 // TODO work on this one and see how you should store it
 export interface Bet {
   betType: BetType;
-  eventRef: IdRefMap;
+  eventId: string;
   /** Users involved in the bet */
-  userRefs: IdRefMap;
-  scorecardRefs: IdRefMap;
+  userIds: string[];
+  scorecardIds: string[];
   /** Teams involved in the bet */
-  teamRefs: IdRefMap;
-  createdTime: FirebaseFirestore.Timestamp;
+  teamIds: string[];
+  createdTime: number;
 }
 
 export type BetType = 'TeamVsTeam' | '1-2-3-Ball' | 'Box' | 'Skins' | 'Quota';

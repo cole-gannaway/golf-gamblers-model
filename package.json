@@ -9,8 +9,5 @@
   },
   "files": [
     "/dist"
-  ],
-  "dependencies": {
-    "@google-cloud/firestore": "^4.9.9"
-  }
+  ]
 }

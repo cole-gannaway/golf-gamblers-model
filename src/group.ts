@@ -1,12 +1,10 @@
-import { IdRefMap } from './relations';
-
 /**
  * Groups are used to add all group members to an event
  */
 export interface Group {
   name: string;
-  userRefs: IdRefMap;
-  createdTime: FirebaseFirestore.Timestamp;
+  userIds: string[];
+  createdTime: number;
 }
 
 /**
@@ -14,6 +12,6 @@ export interface Group {
  */
 export interface Team {
   name: string;
-  userRefs: IdRefMap;
-  createdTime: FirebaseFirestore.Timestamp;
+  userIds: string[];
+  createdTime: number;
 }

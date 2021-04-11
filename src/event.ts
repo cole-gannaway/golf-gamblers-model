@@ -1,33 +1,40 @@
-import { IdRefMap } from './relations';
-
+/**
+ * Event information should be uneditable once created
+ */
 export interface Event {
   name: string;
-  createdTime: FirebaseFirestore.Timestamp;
-  creatorRef: IdRefMap;
+  createdTime: number;
+  creatorId: string;
 }
 
+/**
+ * Event configuration only editable by event admins
+ */
 export interface EventConfiguration {
   private: boolean;
-  courseRef: IdRefMap;
+  courseId: string;
   numberOfHoles: number;
   maxBet: number;
   tees: string;
-  status: EventStatus;
+  state: EventState;
 }
 
+/**
+ * Event data that firebase functions will write to
+ */
 export interface EventPrivateData {
   // TODO add information regarding the event results and leaderboard
-  betRefs?: IdRefMap;
-  scoreRefs?: IdRefMap;
+  betIds?: string[];
+  scoreIds?: string[];
 }
 
-export interface EventAdmins {
-  userRefs: IdRefMap;
+/**
+ * Event relationships with users giving them permissions
+ */
+export interface EventUser {
+  userId: string;
+  eventId: string;
+  isAdmin: boolean;
 }
 
-export interface EventUsers {
-  userRefs: IdRefMap;
-  groupRefs?: IdRefMap;
-}
-
-export type EventStatus = 'created' | 'complete';
+export type EventState = 'IN_PROGRESS' | 'COMPLETE';

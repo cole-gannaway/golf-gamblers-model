@@ -29,12 +29,19 @@ export interface EventPrivateData {
 }
 
 /**
- * Event relationships with users giving them permissions
+ * Event users document to reference for permissions
  */
-export interface EventUser {
-  userId: string;
+export interface EventUsers {
   eventId: string;
-  isAdmin: boolean;
+  userIds: string[];
+}
+
+/**
+ * Event admins document to reference for permissions
+ */
+export interface EventAdmins {
+  eventId: string;
+  userIds: string[];
 }
 
 export type EventState = 'IN_PROGRESS' | 'COMPLETE';

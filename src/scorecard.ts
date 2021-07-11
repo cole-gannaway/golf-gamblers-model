@@ -1,15 +1,27 @@
-export interface ScoreCard {
+export interface Scorecard {
+  scorecardId: string;
   userId: string;
+  eventId?: string;
   createdTime: number;
-  holes: Hole[];
+  holes: Holes;
 }
 
+export interface Holes {
+  [holeNumber: number]: Hole;
+}
 export interface Hole {
   strokes: number;
-  holeInfo: HoleInfo;
+  holeScoreInfo?: HoleScoreInfo;
+  holeInfo?: HoleInfo;
 }
 
+/** This information is filled in from the course */
 export interface HoleInfo {
   par: number;
   handicap?: number;
+}
+
+export interface HoleScoreInfo {
+  /** Gettting a par from the sand */
+  sandy: boolean;
 }
